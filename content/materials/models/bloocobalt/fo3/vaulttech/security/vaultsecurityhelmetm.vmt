@@ -1,0 +1,5 @@
+"VertexLitGeneric"
+{
+	"$baseTexture" "models\bloocobalt\fo3\vaulttech\security/vaultsecurityhelmetm"
+	"$bumpmap" "models\bloocobalt\fo3\vaulttech\security/vaultsecurityhelmetm_n"
+}

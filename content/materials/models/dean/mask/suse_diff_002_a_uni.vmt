@@ -1,0 +1,5 @@
+"VertexLitGeneric"
+{
+	"$baseTexture" "models\dean/mask/suse_diff_002_a_uni"
+	"$bumpmap"	"models\dean/mask/suse_diff_002_a_uni_n"
+}

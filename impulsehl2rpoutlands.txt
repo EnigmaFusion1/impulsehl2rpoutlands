@@ -1,0 +1,6 @@
+"impulsehl2rpoutlands"
+{
+	"base"		"impulse"
+	"title"		"impulse: Half Life 2 Outlands Roleplay"
+	"author"	"vin"
+}
