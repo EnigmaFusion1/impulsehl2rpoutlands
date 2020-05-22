@@ -18,3 +18,5 @@ impulse.Config.MainColour = Color(89, 117, 29, 255)
 
 impulse.Config.UserSlots = 32
 impulse.Config.IntroMusic = "music/hl1_song20.mp3"
+
+impulse.Config.InventoryMaxWeight = 30
