@@ -86,7 +86,8 @@ end
 
 function ENT:RealLaunch()
 	self.ConnectedParts["Engine 1"]:StopSound("HeadcrabCanister.AfterLanding")
-    self:EmitSound("ep02_outro.RocketTakeOffBlast")
+    impulse.Rocket.EmitRocketSound("ep02_outro.RocketTakeOffBlast")
+
     ParticleEffectAttach("choreo_launch_rocket_jet", PATTACH_POINT_FOLLOW, self.ConnectedParts["Engine 1"], 0)
     self:AttachLight()
 
@@ -119,7 +120,7 @@ function ENT:RealLaunch()
     end)
     timed(12, function() self:Remove() end)
 
-    util.ScreenShake(self:GetPos(), 100, 5, 15, 10000)
+    util.ScreenShake(self:GetPos(), 100, 5, 18, 10000)
 end
 
 function ENT:AttachLight()

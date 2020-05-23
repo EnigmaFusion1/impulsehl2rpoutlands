@@ -149,4 +149,17 @@ impulse.Config.Zones = {}
 impulse.Config.Buttons = {}
 
 impulse.Config.LoadScript = function()
+	for v,k in pairs(ents.GetAll()) do
+		if k:GetModel() == "models/props_silo/launch_button.mdl" then
+			local pos = k:GetPos()
+			local ang = k:GetAngles()
+
+			k:Remove()
+
+			local x = ents.Create("impulse_hl2orp_rocketconsole")
+			x:SetPos(pos)
+			x:SetAngles(ang)
+			x:Spawn()
+		end
+	end
 end
