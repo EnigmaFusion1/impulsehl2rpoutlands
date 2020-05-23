@@ -18,6 +18,7 @@ function ENT:Initialize()
     self.FlyTo = pos
 
     self:AddPart("Payload")
+    self:AddPart("Hatch")
     self:AddPart("Stage 3")
     self:AddPart("Stage 2")
     self:AddPart("Stage 1")

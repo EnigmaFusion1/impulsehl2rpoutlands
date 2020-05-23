@@ -11,7 +11,7 @@ sound.Add({
 })
 
 sound.Add({
-	name = "impulseRocketAlertLoop2",
+	name = "impulseRocketAlertLoopFinal",
 	channel = CHAN_AUTO,
 	volume = 1,
 	level = 70,

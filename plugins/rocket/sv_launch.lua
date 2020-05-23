@@ -21,20 +21,21 @@ function impulse.Rocket.LaunchSequence()
 
 	local launchStart = CurTime()
 	local launchEnd = CurTime() + 300
+	local loop1
+	local loop2
 
 	impulse.Rocket.SetCountdownEnd(launchEnd)
-	console:EmitSound("impulseRocketAlertLoop1")
+	loop1 = console:StartLoopingSound("impulseRocketAlertLoop1")
 
 	timer.Simple(1.5, function() impulse.Rocket.SpeakerEmitSound("ambient/levels/launch/1stfiringwarning.wav", 100) end)
 	timer.Simple(4, function() console:EmitSound("impulseRocketAlertLoop1") end)
 	timer.Simple(190, function() impulse.Rocket.SpeakerEmitSound("impulse/outlands/launchsiren_start.wav", 80, 100, 0.9) end)
 	timer.Simple(290, function()
-		console:StopSound("impulseRocketAlertLoop1")
-		console:EmitSound("impulseRocketAlertLoop2")
+		console:StopLoopingSound(loop1)
+		loop2 = console:StartLoopingSound("impulseRocketAlertLoopFinal")
 	end)
-	timer.Simple(300.5, function()
-		print("calling stopper")
-		console:StopSound("impulseRocketAlertLoop2")
+	timer.Simple(300, function()
+		console:StopLoopingSound(loop2)
 	end)
 
 	timer.Simple(275, function()

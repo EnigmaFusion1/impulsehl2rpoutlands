@@ -20,6 +20,12 @@ ENT.Parts = {
 		model = "models/props_silo/rocket.mdl",
 		takes = {}
 	},
+	["Hatch"] = {
+		pos = Vector(0, 0, 0),
+		ang = Angle(0, 0, 0),
+		model = "models/props_silo/rocket_hatch.mdl",
+		takes = {}
+	},
 	["Stage 3"] = {
 		pos = Vector(0, 0, -328),
 		ang = Angle(0, 0, 0),
