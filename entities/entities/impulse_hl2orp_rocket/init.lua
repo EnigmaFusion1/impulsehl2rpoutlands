@@ -3,7 +3,6 @@ AddCSLuaFile("shared.lua")
 
 include("shared.lua")
 
-
 function ENT:Initialize()
     self:SetModel("models/hunter/blocks/cube025x025x025.mdl")
     self:PhysicsInit(SOLID_VPHYSICS)
@@ -12,14 +11,11 @@ function ENT:Initialize()
     self:SetUseType(SIMPLE_USE)
     self:DrawShadow(false)
     self:AddEFlags(EFL_FORCE_CHECK_TRANSMIT)
-
     self.ConnectedParts = {}
 
     local pos = self:GetPos()
     pos.z = pos.y + 1000
     self.FlyTo = pos
-
-    --self:SetRocketSpeed(300)
 
     self:AddPart("Payload")
     self:AddPart("Stage 3")
@@ -61,15 +57,35 @@ function ENT:SetRocketSpeed(speed)
     self.Speed = speed
 end
 
-function ENT:WarmupEngines()
+function ENT:LaunchSequence()
+	self:WarmupEngines()
+	timer.Simple(11.5, function()
+		if not IsValid(self) then
+			return
+		end
 
+		self:RealLaunch()
+	end)
+end
+
+function ENT:WarmupEngines()
+	local offset = Vector(44.873348236084, -19.690498352051, -4.3700480461121)
+
+	ParticleEffect("choreo_launch_camjet_1", self.ConnectedParts["Engine 1"]:LocalToWorld(offset), Angle(0, 0, 0), self.ConnectedParts["Engine 1"])
+	ParticleEffect("choreo_launch_camjet_1", self.ConnectedParts["Engine 2"]:LocalToWorld(offset), Angle(0, 0, 0), self.ConnectedParts["Engine 2"])
+	ParticleEffect("choreo_launch_camjet_1", self.ConnectedParts["Engine 3"]:LocalToWorld(offset), Angle(0, 0, 0), self.ConnectedParts["Engine 3"])
+
+	self.ConnectedParts["Engine 1"]:EmitSound("HeadcrabCanister.AfterLanding")
 end
 
 function ENT:CutFuelLines()
+end
 
+function ENT:MakeFuelLines()
 end
 
 function ENT:RealLaunch()
+	self.ConnectedParts["Engine 1"]:StopSound("HeadcrabCanister.AfterLanding")
     self:EmitSound("ep02_outro.RocketTakeOffBlast")
     ParticleEffectAttach("choreo_launch_rocket_jet", PATTACH_POINT_FOLLOW, self.ConnectedParts["Engine 1"], 0)
     self:AttachLight()

@@ -9,7 +9,7 @@ ENT.Spawnable = true
 ENT.AdminOnly = true
 
 game.AddParticles("particles/choreo_launch.pcf")
-PrecacheParticleSystem("choreo_launch_camjet1")
+PrecacheParticleSystem("choreo_launch_camjet_1")
 PrecacheParticleSystem("choreo_launch_rocket_jet")
 PrecacheParticleSystem("choreo_launch_rocket_upsmoke_backup")
 
