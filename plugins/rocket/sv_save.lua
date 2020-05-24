@@ -1,3 +1,7 @@
+function PLUGIN:DatabaseConnected()
+	print("connected")
+end
+
 function impulse.Rocket.Save()
 
 end

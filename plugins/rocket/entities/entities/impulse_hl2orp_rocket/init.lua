@@ -51,6 +51,7 @@ function ENT:Initialize()
     self.loco:SetSaveValue("m_vecPosition2", tostring(self.FlyTo))
 
     self:SetRocketSpeed(10)
+    self.ConnectedParts["Hatch"]:ResetSequence("closed")
 end
 
 function ENT:SetRocketSpeed(speed)
@@ -83,6 +84,24 @@ function ENT:CutFuelLines()
 end
 
 function ENT:MakeFuelLines()
+end
+
+function ENT:EmitSteam()
+	-- CUT
+	for v,k in pairs(self.ConnectedParts) do
+		if not self.Parts[v].steamPoints then
+			continue
+		end
+
+		local points = self.Parts[v].steamPoints
+		local point = points[math.random(1, table.Count(points))]
+		point = k:LocalToWorld(point)
+
+		local vec = (k:GetPos() - point)
+		local ang = vec:Angle()
+
+		ParticleEffect("steam_jet_50_steam", point, ang)
+	end
 end
 
 function ENT:RealLaunch()
