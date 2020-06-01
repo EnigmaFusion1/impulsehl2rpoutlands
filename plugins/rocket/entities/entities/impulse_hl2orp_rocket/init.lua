@@ -26,6 +26,7 @@ function ENT:Initialize()
     self:AddPart("Engine 2")
     self:AddPart("Engine 3")
 
+    -- this is dumb, im stuck between a rock and a hard place cuz of prediction tho. also it works.
     self.loco = ents.Create("func_movelinear")
     self.loco:SetPos(self:GetPos())
     self.loco:SetAngles(self:GetAngles())
@@ -159,7 +160,7 @@ function ENT:AttachLight()
     self.light:SetLightColor(Vector(245, 208, 57))
 end
 
-function ENT:UpdateTransmitState()
+function ENT:UpdateTransmitState() -- this might break stuff if its removed so i never did cuz im scaredf
     return TRANSMIT_ALWAYS
 end
 
