@@ -12,7 +12,7 @@ TEAM_OTA = 2
 TEAM_VORT = 3
 
 -- use PiggyBoot to boot partially off hl2rp main schema, this should make development much easier
-impulse.SchemaPiggyBootEntities("impulsehl2rp")
+impulse.Schema.PiggyBootEntities("impulsehl2rp")
 
 impulse.Schema.PiggyBoot("impulsehl2rp", "schema/items")
 impulse.Schema.PiggyBoot("impulsehl2rp", "schema/benches")
